@@ -19,8 +19,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.textView);
+
+        if (savedInstanceState != null) {
+            textView.setTextColor(savedInstanceState.getInt("color"));
+        }
     }
 
     public void onChange(View view) {
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("color", textView.getCurrentTextColor());
     }
 }
