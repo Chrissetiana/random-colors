@@ -1,9 +1,12 @@
 package com.chrissetiana.randomcolors;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onChange(View view) {
+        Random random = new Random();
+
+        String colorName = colorArray[random.nextInt(20)];
+        int colorResource = getResources().getIdentifier(colorName, "color", getApplicationContext().getPackageName());
+        int colorRes = ContextCompat.getColor(this, colorResource);
+
+        textView.setTextColor(colorRes);
     }
 
     @Override
