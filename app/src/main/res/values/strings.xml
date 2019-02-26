@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Random Colors</string>
+    <string name="string_button">Change Color</string>
+    <string name="string_text">Hello World!</string>
 </resources>
